@@ -1,0 +1,73 @@
+
+
+/* ===============================
+   Toggle Header Styles
+   =============================== */
+   .tdsc-collapse__toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75em 1em;
+    border: none;
+    background: #f7f7f7;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.tdsc-chevron {
+    font-size: 20px;
+    line-height: 1;
+    transition: transform 0.3s ease;
+    color: inherit;
+}
+
+.tdsc-chevron.is-open {
+    transform: rotate(180deg);
+}
+
+
+/* ===============================
+  Panel Content Area
+  =============================== */
+.tdsc-collapse__content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.tdsc-collapse__inner {
+    padding: 0;
+}
+
+.wp-block[data-type="tomatillo-design/simple-collapse"] .tdsc-collapse__content {
+    display: none;
+    padding: 1em;
+    position: relative;
+}
+
+.wp-block[data-type="tomatillo-design/simple-collapse"].is-open .tdsc-collapse__content {
+    display: block;
+    max-height: 1000px;
+}
+
+
+/* ===============================
+  Empty InnerBlocks Placeholder
+  =============================== */
+.editor-styles-wrapper .tdsc-collapse__content:empty::after {
+    content: "Click + to add blocks";
+    color: #888;
+    font-size: 0.85em;
+    position: absolute;
+    top: 1em;
+    left: 1em;
+}
+
+
+/* ===============================
+  Block Shadow When Open
+  =============================== */
+.wp-block[data-type="tomatillo-design/simple-collapse"].is-open {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}

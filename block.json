@@ -1,0 +1,36 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 2,
+    "name": "tomatillo-design/simple-collapse",
+    "title": "Simple Collapse Panel",
+    "category": "layout",
+    "icon": "excerpt-view",
+    "description": "A collapsible panel with custom animation and block content.",
+    "keywords": ["accordion", "collapsible", "toggle", "panel"],
+    "version": "1.0.0",
+    "textdomain": "tomatillo-design-simple-collapse",
+    "editorScript": "file:./build/index.js",
+    "editorStyle": "file:./build/index.css",
+    "style": "file:./build/style-index.css",
+    "attributes": {
+      "panelTitle": {
+        "type": "string"
+      },
+      "defaultOpen": {
+        "type": "boolean",
+        "default": false
+      },
+      "backgroundColor": {
+            "type": "string",
+            "default": "#222222"
+        },
+    "panelId": {
+        "type": "string"
+        }
+    },
+    "supports": {
+      "html": false,
+      "align": [ "wide", "full" ]
+    }
+  }
+  

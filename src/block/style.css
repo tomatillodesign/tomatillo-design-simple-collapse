@@ -1,0 +1,96 @@
+/* ========================================
+   Collapse Container
+======================================== */
+.tdsc-collapse {
+    margin-bottom: 1em;
+    overflow: visible; /* Allow outlines and animations to extend */
+    transition: box-shadow 0.3s ease;
+    border: none;
+    box-shadow: none;
+}
+
+.tdsc-collapse.is-open {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+/* ========================================
+  Toggle Button Styles
+======================================== */
+.tdsc-collapse__toggle {
+    width: 100%;
+    padding: 0.75em 1em;
+    background: #f7f7f7;
+    border: none;
+    text-align: left;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background 0.3s, box-shadow 0.2s;
+    position: relative;
+    z-index: 1; /* Ensure it's above other elements */
+}
+
+button.tdsc-collapse__toggle {
+    text-transform: none;
+}
+
+.tdsc-collapse__toggle:hover {
+    background: #eaeaea;
+}
+
+/* Remove focus outline for mouse clicks */
+.tdsc-collapse__toggle:focus:not(:focus-visible) {
+    outline: none;
+    box-shadow: none;
+}
+
+/* Show clear outline for keyboard users */
+.tdsc-collapse__toggle:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.6);
+    z-index: 10;
+}
+
+
+/* ========================================
+  Chevron Icon
+======================================== */
+.tdsc-chevron {
+    float: right;
+    transition: transform 0.3s ease;
+}
+
+.tdsc-collapse.is-open .tdsc-chevron {
+    transform: rotate(180deg);
+}
+
+
+/* ========================================
+  Collapsible Content Panel
+======================================== */
+.tdsc-collapse__content {
+    max-height: 0;
+    overflow: hidden;
+}
+
+/* Inner padding applied here */
+.tdsc-collapse__inner {
+    padding: 1em;
+}
+
+/* Helper class to disable transition for cleaner collapse */
+.tdsc-collapsing {
+    transition: none !important;
+    max-height: 0 !important;
+    overflow: hidden !important;
+}
+
+/* Remove bottom margin from last element for even spacing */
+.tdsc-collapse__content > *:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
