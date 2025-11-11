@@ -7,7 +7,7 @@
     "icon": "excerpt-view",
     "description": "A collapsible panel with custom animation and block content.",
     "keywords": ["accordion", "collapsible", "toggle", "panel"],
-    "version": "1.0.0",
+    "version": "1.1.0",
     "textdomain": "tomatillo-design-simple-collapse",
     "editorScript": "file:./build/index.js",
     "editorStyle": "file:./build/index.css",
@@ -21,16 +21,143 @@
         "default": false
       },
       "backgroundColor": {
-            "type": "string",
-            "default": "#222222"
-        },
-    "panelId": {
+        "type": "string",
+        "default": "var(--wp--preset--color--primary, #222222)"
+      },
+      "panelId": {
         "type": "string"
+      },
+      "textColor": {
+        "type": "string",
+        "default": "#ffffff"
+      },
+      "iconType": {
+        "type": "string",
+        "default": "chevron"
+      },
+      "iconAnimation": {
+        "type": "string",
+        "default": "rotate"
+      },
+      "animationSpeed": {
+        "type": "string",
+        "default": "normal"
+      },
+      "fontSize": {
+        "type": "string"
+      },
+      "fontWeight": {
+        "type": "string",
+        "default": "700"
+      },
+      "lineHeight": {
+        "type": "string"
+      },
+      "borderRadius": {
+        "type": "string",
+        "default": "0"
+      },
+      "borderWidth": {
+        "type": "string",
+        "default": "0"
+      },
+      "borderColor": {
+        "type": "string"
+      },
+      "headerPadding": {
+        "type": "object",
+        "default": {
+          "top": "0.75em",
+          "right": "1em",
+          "bottom": "0.75em",
+          "left": "1em"
         }
+      },
+      "contentPadding": {
+        "type": "object",
+        "default": {
+          "top": "1em",
+          "right": "1em",
+          "bottom": "1em",
+          "left": "1em"
+        }
+      },
+      "hoverBackgroundColor": {
+        "type": "string"
+      },
+      "hoverTextColor": {
+        "type": "string"
+      },
+      "activeBackgroundColor": {
+        "type": "string"
+      },
+      "activeTextColor": {
+        "type": "string"
+      },
+      "customClassName": {
+        "type": "string"
+      },
+      "enableHashLink": {
+        "type": "boolean",
+        "default": true
+      },
+      "focusOnOpen": {
+        "type": "boolean",
+        "default": false
+      },
+      "schemaType": {
+        "type": "string",
+        "default": "none"
+      },
+      "enableAnalytics": {
+        "type": "boolean",
+        "default": false
+      }
     },
     "supports": {
       "html": false,
-      "align": [ "wide", "full" ]
-    }
+      "align": [ "wide", "full" ],
+      "typography": {
+        "fontSize": true,
+        "lineHeight": true
+      },
+      "spacing": {
+        "padding": true,
+        "margin": true
+      },
+      "lock": true
+    },
+    "variations": [
+      {
+        "name": "faq",
+        "title": "FAQ Style",
+        "description": "A clean FAQ-style collapse panel",
+        "attributes": {
+          "iconType": "plus",
+          "iconAnimation": "rotate",
+          "defaultOpen": false
+        }
+      },
+      {
+        "name": "minimal",
+        "title": "Minimal Style",
+        "description": "A minimal collapse panel with no background",
+        "attributes": {
+          "backgroundColor": "transparent",
+          "borderWidth": "0",
+          "iconType": "chevron"
+        }
+      },
+      {
+        "name": "product",
+        "title": "Product Details",
+        "description": "Styled for product information sections",
+        "attributes": {
+          "iconType": "arrow",
+          "defaultOpen": false,
+          "borderRadius": "4px"
+        }
+      }
+    ]
   }
   

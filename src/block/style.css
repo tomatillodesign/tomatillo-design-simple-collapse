@@ -20,7 +20,7 @@
 .tdsc-collapse__toggle {
     width: 100%;
     padding: 0.75em 1em;
-    background: #f7f7f7;
+    background: var(--wp--preset--color--primary, #222222);
     border: none;
     text-align: left;
     font-size: 1.1em;
@@ -29,23 +29,43 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    transition: background 0.3s, box-shadow 0.2s;
+    transition: background 0.3s, box-shadow 0.2s, color 0.3s;
     position: relative;
     z-index: 1; /* Ensure it's above other elements */
+    /* Default white text color - high specificity to override theme */
+    color: #ffffff !important;
+    text-shadow: none !important;
 }
 
 button.tdsc-collapse__toggle {
     text-transform: none;
+    color: #ffffff !important;
+}
+
+/* Ensure title text is white by default - override theme styles */
+.tdsc-collapse__toggle .tdsc-collapse__title {
+    color: #ffffff !important;
+    text-shadow: none !important;
 }
 
 .tdsc-collapse__toggle:hover {
-    background: #eaeaea;
+    background: var(--tdsc-hover-bg, #eaeaea);
+    color: var(--tdsc-hover-color, inherit);
+    text-shadow: none !important;
+}
+
+.tdsc-collapse.is-open .tdsc-collapse__toggle {
+    background: var(--tdsc-active-bg, inherit);
+    color: var(--tdsc-active-color, inherit);
+    text-shadow: none !important;
 }
 
 /* Remove focus outline for mouse clicks */
 .tdsc-collapse__toggle:focus:not(:focus-visible) {
     outline: none;
     box-shadow: none;
+    /* Maintain text color on focus */
+    color: inherit !important;
 }
 
 /* Show clear outline for keyboard users */
@@ -53,6 +73,23 @@ button.tdsc-collapse__toggle {
     outline: none;
     box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.6);
     z-index: 10;
+    /* Maintain text color on keyboard focus */
+    color: inherit !important;
+}
+
+/* Override theme focus styles that might use inherit */
+.tdsc-collapse__toggle:focus {
+    color: inherit !important;
+    transform: none !important;
+    opacity: 1 !important;
+    text-shadow: none !important;
+}
+
+/* Ensure icons stay white on focus */
+.tdsc-collapse__toggle:focus .tdsc-chevron,
+.tdsc-collapse__toggle:focus .dashicons {
+    color: #ffffff !important;
+    text-shadow: none !important;
 }
 
 
@@ -62,6 +99,15 @@ button.tdsc-collapse__toggle {
 .tdsc-chevron {
     float: right;
     transition: transform 0.3s ease;
+    color: #ffffff !important;
+    text-shadow: none !important;
+}
+
+/* Ensure all dashicons within toggle are white */
+.tdsc-collapse__toggle .dashicons,
+.tdsc-collapse__toggle .tdsc-chevron {
+    color: #ffffff !important;
+    text-shadow: none !important;
 }
 
 .tdsc-collapse.is-open .tdsc-chevron {
@@ -93,4 +139,140 @@ button.tdsc-collapse__toggle {
 .tdsc-collapse__content > *:last-child {
     margin-bottom: 0;
     padding-bottom: 0;
+}
+
+/* ========================================
+  Icon Animations
+======================================== */
+.tdsc-icon-animation-rotate .tdsc-chevron {
+    transition: transform 0.3s ease;
+}
+
+.tdsc-icon-animation-flip .tdsc-chevron {
+    transition: transform 0.3s ease;
+}
+
+.tdsc-icon-animation-fade .tdsc-chevron {
+    transition: opacity 0.3s ease;
+}
+
+.tdsc-icon-animation-none .tdsc-chevron {
+    transition: none;
+}
+
+.tdsc-collapse.is-open .tdsc-icon-animation-rotate .tdsc-chevron {
+    transform: rotate(180deg);
+}
+
+.tdsc-collapse.is-open .tdsc-icon-animation-flip .tdsc-chevron {
+    transform: scaleY(-1);
+}
+
+.tdsc-collapse.is-open .tdsc-icon-animation-fade .tdsc-chevron {
+    opacity: 0.5;
+}
+
+/* Icon position */
+.tdsc-collapse__toggle.tdsc-icon-left {
+    flex-direction: row-reverse;
+}
+
+.tdsc-collapse__toggle.tdsc-icon-left .tdsc-chevron {
+    float: left;
+    margin-right: 0.75em;
+    margin-left: 0;
+}
+
+/* Plus/Minus icon handling */
+.tdsc-collapse:not(.is-open) .tdsc-chevron.dashicons-plus-alt2::before {
+    content: "\f132";
+}
+
+.tdsc-collapse.is-open .tdsc-chevron.dashicons-plus-alt2::before {
+    content: "\f460";
+}
+
+/* ========================================
+  CSS Custom Properties for Theming
+======================================== */
+.tdsc-collapse {
+    --tdsc-border-radius: 0;
+    --tdsc-border-width: 0;
+    --tdsc-border-color: transparent;
+    --tdsc-header-padding-top: 0.75em;
+    --tdsc-header-padding-right: 1em;
+    --tdsc-header-padding-bottom: 0.75em;
+    --tdsc-header-padding-left: 1em;
+    --tdsc-content-padding-top: 1em;
+    --tdsc-content-padding-right: 1em;
+    --tdsc-content-padding-bottom: 1em;
+    --tdsc-content-padding-left: 1em;
+    --tdsc-animation-speed: normal;
+}
+
+/* Animation speed variables */
+.tdsc-collapse[data-animation-speed="slow"] {
+    --tdsc-animation-speed: 600ms;
+}
+
+.tdsc-collapse[data-animation-speed="normal"] {
+    --tdsc-animation-speed: 300ms;
+}
+
+.tdsc-collapse[data-animation-speed="fast"] {
+    --tdsc-animation-speed: 150ms;
+}
+
+.tdsc-collapse__content {
+    transition: max-height var(--tdsc-animation-speed, 300ms) ease;
+}
+
+/* ========================================
+  Screen Reader Announcements
+======================================== */
+.tdsc-sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+.tdsc-live-region {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+/* ========================================
+  Prefers Reduced Motion Support
+======================================== */
+@media (prefers-reduced-motion: reduce) {
+    .tdsc-collapse {
+        transition: none;
+    }
+
+    .tdsc-collapse__toggle {
+        transition: none;
+    }
+
+    .tdsc-chevron {
+        transition: none;
+    }
+
+    .tdsc-collapse__content {
+        transition: none !important;
+    }
+
+    .tdsc-icon-animation-rotate .tdsc-chevron,
+    .tdsc-icon-animation-flip .tdsc-chevron,
+    .tdsc-icon-animation-fade .tdsc-chevron {
+        transition: none;
+    }
 }
