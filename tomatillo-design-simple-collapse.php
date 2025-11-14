@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Tomatillo Design ~ Simple Collapse
  * Description:       Adds a custom Gutenberg block with collapsible panels and smooth animations.
- * Version:           1.1.0
+ * Version:           1.1.1
  * Author:            Chris Liu-Beers
  * Author URI:        http://www.tomatillodesign.com
  * Text Domain:       tomatillo-design-simple-collapse
@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.1.0
  */
-define( 'TDSC_VERSION', '1.1.0' );
+define( 'TDSC_VERSION', '1.1.1' );
 
 /**
  * Register the Simple Collapse block.

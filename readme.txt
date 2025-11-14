@@ -4,7 +4,7 @@ Tags: collapsible panel, accordion, content toggle, accessibility, gutenberg blo
 Requires at least: 6.0
 Tested up to: 6.5
 Requires PHP: 8.2
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -58,6 +58,11 @@ Yes. The block uses minimal styling so it integrates visually with most WordPres
 
 == Changelog ==
 
+= 1.1.1 =
+* Fixed: Improved spacing between stacked accordion items
+* Fixed: Removed excessive bottom padding from content area
+* Fixed: Added proper margin when items are expanded
+
 = 1.1.0 =
 * Performance: Assets now only load when block is present on page
 * Accessibility: Added keyboard event handling (Enter/Space keys)
@@ -72,6 +77,9 @@ Yes. The block uses minimal styling so it integrates visually with most WordPres
 * Accessible, animated, editor-friendly collapsible panel block.
 
 == Upgrade Notice ==
+
+= 1.1.1 =
+Spacing improvements for better visual hierarchy when accordion items are stacked.
 
 = 1.1.0 =
 Performance and accessibility improvements. Requires PHP 8.2 or higher.

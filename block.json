@@ -7,7 +7,7 @@
     "icon": "excerpt-view",
     "description": "A collapsible panel with custom animation and block content.",
     "keywords": ["accordion", "collapsible", "toggle", "panel"],
-    "version": "1.1.0",
+    "version": "1.1.1",
     "textdomain": "tomatillo-design-simple-collapse",
     "editorScript": "file:./build/index.js",
     "editorStyle": "file:./build/index.css",
@@ -78,7 +78,7 @@
         "default": {
           "top": "1em",
           "right": "1em",
-          "bottom": "1em",
+          "bottom": "0",
           "left": "1em"
         }
       },
